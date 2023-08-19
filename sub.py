@@ -1,5 +1,5 @@
 import pysubs2
-from translate import *
+from translate_g import *
 
 
 def translate_sub(src_srt: str, dst_srt: str, from_lang:str, to_lang1:str, to_lang2:str):
@@ -11,11 +11,12 @@ def translate_sub(src_srt: str, dst_srt: str, from_lang:str, to_lang1:str, to_la
 
 
     for index, line in enumerate( subs):
-        print( f'------------{index}------------')
-        print(line.text)
-        subs[index].text = lines[index] + "\\N" + translate1_lines[index]
-        if to_lang2:
-            subs[index].text = translate2_lines[index] + "\\N" + subs[index].text 
+        print(f' translate ----{index}----')
+        if index<5 :
+            
+            subs[index].text = lines[index] + "\\N" + translate1_lines[index]
+            if to_lang2:
+                subs[index].text = translate2_lines[index] + "\\N" + subs[index].text 
     
 
     subs.save(dst_srt)
@@ -24,4 +25,4 @@ def translate_sub(src_srt: str, dst_srt: str, from_lang:str, to_lang1:str, to_la
 if __name__ == '__main__':
     srt_srt = 'data/subs/sub.srt'
     dst_srt = 'data/subs/sub-tr.srt'
-    translate_sub(srt_srt, dst_srt, Languages.fr, Languages.cn, Languages.en)
+    translate_sub(srt_srt, dst_srt, 'fr', 'en', 'zh-CN')

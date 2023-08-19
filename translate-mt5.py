@@ -22,33 +22,30 @@ def translate(lines : [str], from_lang=Languages.fr, to_lang = Languages.cn)->[s
     # Woman: No, I've only been here a few months. I work in the Human Resources Department.
     # '''
     translated_lines = []
-    translator = ctranslate2.Translator("data/models/nllb-200-3.3B", 'cuda')
+    translator = ctranslate2.Translator("data/models/mt5-base", 'cuda')
     #translator = ctranslate2.Translator("nllb-200-600M")
-    tokenizer = transformers.AutoTokenizer.from_pretrained("facebook/nllb-200-3.3B", src_lang=from_lang)
+    tokenizer = transformers.AutoTokenizer.from_pretrained("google/mt5-base", src_lang=from_lang)
     seg = pysbd.Segmenter(language=from_lang[:2], clean=False)
     for index, text in enumerate(lines):
 
-        print("seg=" , len(seg.segment(text)), seg.segment(text))
-        translated_sentense = ""
-        for sindex, sentense in enumerate( seg.segment(text)):
+        print("seg=" , len(seg.segment(text)))
 
         
 
-            source = tokenizer.convert_ids_to_tokens(tokenizer.encode(sentense))
-            target_prefix = [to_lang]
-            results = translator.translate_batch([source], target_prefix=[target_prefix], asynchronous=False)
-            #target = results[0].hypotheses[0][1:]
-            target = results[0].hypotheses[0]
-            results_num = len(results)
-            hypotheses_num = len(results[0].hypotheses)
-            # print(f' {results_num}', f'{hypotheses_num}')
-            # print(f'source = {source}')
-            translated  = tokenizer.decode(tokenizer.convert_tokens_to_ids(target))
-            translated_sentense += translated[8:] 
+        source = tokenizer.convert_ids_to_tokens(tokenizer.encode(text))
+        target_prefix = [to_lang]
+        results = translator.translate_batch([source], target_prefix=[target_prefix], asynchronous=False)
+        #target = results[0].hypotheses[0][1:]
+        target = results[0].hypotheses[0]
+        results_num = len(results)
+        hypotheses_num = len(results[0].hypotheses)
+        print(f' {results_num}', f'{hypotheses_num}')
+        print(f'source = {source}')
+        translated_text = tokenizer.decode(tokenizer.convert_tokens_to_ids(target))
 
         #print(tokenizer.decode(tokenizer.convert_tokens_to_ids(target)))
         #print(translated_text)
-        translated_lines.append(translated_sentense.strip())
+        translated_lines.append(translated_text[9:])
 
     return translated_lines
 
