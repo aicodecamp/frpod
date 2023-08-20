@@ -1,9 +1,10 @@
 import pysubs2
 from translate_g import *
-
+from pprint import pprint
 
 def translate_sub(src_srt: str, dst_srt: str, from_lang:str, to_lang1:str, to_lang2:str):
     subs = pysubs2.load(src_srt)
+    pprint(subs)
     lines = [ sub.text for sub in subs]
     translate1_lines = translate(lines, from_lang=from_lang, to_lang=to_lang1 )
     if to_lang2:
