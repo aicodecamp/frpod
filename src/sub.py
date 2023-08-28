@@ -13,17 +13,17 @@ def translate_sub(src_srt: str, dst_srt: str, from_lang:str, to_lang1:str, to_la
 
     for index, line in enumerate( subs):
         print(f' translate ----{index}----')
-        if index<5 :
+
             
-            subs[index].text = lines[index] + "\\N" + translate1_lines[index]
-            if to_lang2:
-                subs[index].text = translate2_lines[index] + "\\N" + subs[index].text 
+        subs[index].text = lines[index] + "\\N" + translate1_lines[index]
+        if to_lang2:
+            subs[index].text = translate2_lines[index] + "\\N" + subs[index].text 
     
 
     subs.save(dst_srt)
 
 
 if __name__ == '__main__':
-    srt_srt = 'data/subs/sub.srt'
-    dst_srt = 'data/subs/sub-tr.srt'
+    srt_srt = 'build/fr-qa/testeur-new.srt'
+    dst_srt = 'build/fr-qa/testeur-tr.srt'
     translate_sub(srt_srt, dst_srt, 'fr', 'en', 'zh-CN')

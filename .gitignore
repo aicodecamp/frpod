@@ -190,3 +190,4 @@ build/
 Real-Life-French/
 .idea/
 data/
+.venv
