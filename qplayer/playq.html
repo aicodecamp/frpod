@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
+  </head>
+  <body>
+    <video
+      id="my-video"
+      class="video-js"
+      controls
+      preload="auto"
+      width="640"
+      height="360"
+    >
+      <source src="assets/01-01.mp4" type="video/mp4" />
+      <!-- Add caption tracks here -->
+      <track
+        kind="captions"
+        src="assets/01-01.vtt"
+        srclang="fr"
+        label="French"
+        default
+      />
+    </video>
+
+    <button id="current-btn">Play Current Cue</button>
+    <button id="next-btn">Play Next Cue</button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var player = videojs("my-video");
+        var textTracks = player.textTracks();
+        var currentCueIndex = 0;
+        var currentCue;
+        var isManualSeek = 0; // Flag to indicate if the seek was manual
+
+        // bind
+        const nextBtn = document.getElementById("next-btn");
+        const currentBtn = document.getElementById("current-btn");
+
+        nextBtn.addEventListener("click", playNextCue);
+        currentBtn.addEventListener("click", playCurrentCue);
+
+        player.on("loadeddata", function () {
+          // Display cues on the console
+          displayCues();
+
+          // Play the first cue automatically
+          playCurrentCue();
+        });
+
+        function displayCues() {
+          textTracks.tracks_.forEach(function (track) {
+            console.log("Cues for track " + track.label);
+            for (var i = 0; i < track.cues.length; i++) {
+              var cue = track.cues[i];
+              console.log(
+                "Cue startTime: " +
+                  cue.startTime +
+                  ", endTime: " +
+                  cue.endTime +
+                  ", text: " +
+                  cue.text
+              );
+            }
+          });
+        }
+
+        function playCurrentCue() {
+          if (
+            textTracks &&
+            textTracks.length > 0 &&
+            textTracks[0].cues.length > currentCueIndex
+          ) {
+            currentCue = textTracks[0].cues[currentCueIndex];
+            player.currentTime(currentCue.startTime);
+            player.play();
+            console.log(">>>>>>>>>>>>>Playing current cue:", currentCue.text);
+
+            // Pause after playing the current cue
+            player.on("timeupdate", function () {
+              currentCue = textTracks[0].cues[currentCueIndex];
+              console.log(
+                "----------------timeupdate",
+                "currentCueIndex =",
+                currentCueIndex,
+                "currentTime= ",
+                player.currentTime(),
+                "current cue start time = ",
+                currentCue.startTime,
+                "end time = ",
+                currentCue.endTime
+              );
+              if (isManualSeek) {
+                isManualSeek--;
+                player.play();
+              } else {
+                if (player.currentTime() >= currentCue.endTime) {
+                  console.log(" paused since time over");
+                  player.pause();
+                }
+              }
+            });
+          }
+        }
+
+        function playNextCue() {
+          if (
+            textTracks &&
+            textTracks.length > 0 &&
+            textTracks[0].cues.length > currentCueIndex + 1
+          ) {
+            ++currentCueIndex;
+            currentCue = textTracks[0].cues[currentCueIndex];
+            isManualSeek = 2;
+            playCurrentCue();
+          } else {
+            console.log("No more cues to play.");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
