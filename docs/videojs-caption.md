@@ -1,0 +1,6 @@
+- https://www.iandevlin.com/blog/2011/05/html5/webvtt-and-video-subtitles/
+- https://hacks.mozilla.org/2014/07/adding-captions-and-subtitles-to-html5-video/
+- https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video
+- https://iandevlin.com/blog/2011/05/html5/webvtt-and-video-subtitles/
+- https://www.iandevlin.com/blog/2016/05/html5/html5-video-and-multiple-track-display/
+-

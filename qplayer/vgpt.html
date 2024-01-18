@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
+  </head>
+  <body>
+    <video
+      id="my-video"
+      class="video-js"
+      controls
+      preload="auto"
+      width="640"
+      height="360"
+    >
+      <source src="assets/01-01.mp4" type="video/mp4" />
+      <!-- Add caption tracks here -->
+      <track
+        kind="captions"
+        src="assets/01-01-en.vtt"
+        srclang="en"
+        label="English"
+        default
+      />
+    </video>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var player = videojs("my-video");
+
+        // Get the text tracks
+        var textTracks = player.textTracks();
+
+        // Listen for the 'loadeddata' event to ensure the tracks are loaded
+        player.on("loadeddata", function () {
+          // Loop through each text track
+          textTracks.tracks_.forEach(function (track) {
+            // Output cues for each track
+            console.log("Cues for track " + track.label);
+            for (var i = 0; i < track.cues.length; i++) {
+              var cue = track.cues[i];
+              console.log(
+                "Cue startTime: " +
+                  cue.startTime +
+                  ", endTime: " +
+                  cue.endTime +
+                  ", text: " +
+                  cue.text
+              );
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

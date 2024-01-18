@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video.js with YouTube Video</title>
+    <!-- Video.js CSS -->
+    <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+    <!-- Video.js Script -->
+    <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+    <!-- Video.js YouTube Plugin -->
+    <script src="https://unpkg.com/videojs-youtube"></script>
+  </head>
+  <body>
+    <!-- Video Player Container -->
+    <video
+      id="my-video"
+      class="video-js vjs-16-9"
+      controls
+      preload="auto"
+      width="640"
+      height="360"
+    >
+      <!-- YouTube Video Source -->
+      <source
+        src="https://www.youtube.com/watch?v=f7R8LDNis5k"
+        type="video/youtube"
+      />
+    </video>
+
+    <!-- Script to Initialize Video.js with YouTube Plugin -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const player = videojs("my-video");
+
+        // Enable the YouTube plugin
+        player.yt({
+          techOrder: ["youtube"],
+          // Other YouTube options can be configured here
+        });
+      });
+    </script>
+  </body>
+</html>

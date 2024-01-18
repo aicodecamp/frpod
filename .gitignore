@@ -191,3 +191,5 @@ Real-Life-French/
 .idea/
 data/
 .venv
+
+node_modules

@@ -1,0 +1,30 @@
+{
+  "name": "frpod",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "play cue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sysbender/frpod.git"
+  },
+  "keywords": [
+    "videojs",
+    "play",
+    "cue"
+  ],
+  "author": "Jason",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sysbender/frpod/issues"
+  },
+  "homepage": "https://github.com/sysbender/frpod#readme",
+  "dependencies": {
+    "deeplx": "^0.1.2",
+    "fs": "^0.0.1-security",
+    "node-webvtt": "^1.9.4"
+  }
+}

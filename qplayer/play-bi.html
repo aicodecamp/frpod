@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-jp" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>HTML5 Video and Multiple Track Display</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- <script>
+      var _gaq = [["_setAccount", "UA-2046650-1"], ["_trackPageview"]];
+      (function (a, b) {
+        var c = a.createElement(b),
+          d = a.getElementsByTagName(b)[0];
+        c.src =
+          ("https:" == location.protocol ? "//ssl" : "//www") +
+          ".google-analytics.com.js";
+        d.parentNode.insertBefore(c, d);
+      })(document, "script");
+    </script> -->
+  </head>
+
+  <body>
+    <h1>HTML5 Video and Multiple Track Display</h1>
+    <h2>
+      Read the
+      <a
+        href="https://www.iandevlin.com/blog/2016/05/html5/html5-video-and-multiple-track-display"
+        >accompanying article</a
+      >.
+    </h2>
+    <figure>
+      <video id="video" preload="metadata" controls>
+        <source src="assets/01-01.mp4" type="video/mp4" />
+        <track
+          label="Chinese"
+          kind="subtitles"
+          srclang="zh"
+          src="assets/01-01-zh.vtt"
+        />
+        <track
+          label="English"
+          kind="subtitles"
+          srclang="en"
+          src="assets/01-01-en.vtt"
+          default
+        />
+        <track
+          label="French"
+          kind="subtitles"
+          srclang="fr"
+          src="assets/01-01.vtt"
+        />
+      </video>
+      <figcaption>
+        Sintel &copy; copyright Blender Foundation |
+        <a href="http://www.sintel.org">www.sintel.org</a>
+      </figcaption>
+    </figure>
+    <button id="show-all">Show all</button>
+
+    <script>
+      var video = document.getElementById("video");
+      var player = video;
+
+      // player.ready(function () {
+      //   var settings = this.textTrackSettings;
+      //   settings.setValues({
+      //     backgroundColor: "#444",
+      //     backgroundOpacity: "0",
+      //     edgeStyle: "uniform",
+      //   });
+      //   settings.updateDisplay();
+      // });
+
+      document
+        .getElementById("show-all")
+        .addEventListener("click", function () {
+          for (var i = 0; i < video.textTracks.length; i++) {
+            video.textTracks[i].mode = "showing";
+            for (const cue of video.textTracks[i].cues) {
+              cue.size = 32;
+              cue.line = 20;
+
+              switch (i) {
+                case 0:
+                  cue.align = "start";
+                  cue.position = 10;
+                  break;
+                case 2:
+                  cue.align = "end";
+                  cue.position = 70;
+                  break;
+                default:
+                  cue.position = 40;
+                  break;
+              }
+              console.log("cur=", cue);
+            }
+          }
+        });
+    </script>
+  </body>
+</html>

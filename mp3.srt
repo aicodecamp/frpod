@@ -1,0 +1,68 @@
+1
+00:00:00,000 --> 00:00:04,000
+podcastfrancaisfacile.com
+
+2
+00:00:04,000 --> 00:00:08,000
+Qu'est-ce que vous faites le week-end en général ?
+
+3
+00:00:08,000 --> 00:00:14,000
+Le week-end, le samedi, j'ai ma leçon de guitare.
+
+4
+00:00:14,000 --> 00:00:19,000
+Après, je vais souvent au cinéma avec des amis.
+
+5
+00:00:19,000 --> 00:00:22,000
+Vous jouez de la guitare classique ?
+
+6
+00:00:22,000 --> 00:00:25,000
+Non, je fais de la guitare folk.
+
+7
+00:00:25,000 --> 00:00:28,000
+Et le dimanche, que faites-vous ?
+
+8
+00:00:28,000 --> 00:00:32,000
+Le dimanche, je fais la grasse matinée.
+
+9
+00:00:32,000 --> 00:00:35,000
+Et puis, je fais le ménage.
+
+10
+00:00:35,000 --> 00:00:40,000
+Mais s'il fait beau, je préfère aller à la montagne ou à la mer.
+
+11
+00:00:40,000 --> 00:00:45,000
+Et vous, qu'est-ce que vous faites le week-end en général ?
+
+12
+00:00:45,000 --> 00:00:47,000
+Moi, je travaille le samedi.
+
+13
+00:00:47,000 --> 00:00:53,000
+Mais le samedi soir, je sors souvent avec mes collègues après le travail.
+
+14
+00:00:53,000 --> 00:00:57,000
+Et le dimanche, vous ne travaillez pas ?
+
+15
+00:00:57,000 --> 00:00:59,000
+Non, heureusement.
+
+16
+00:00:59,000 --> 00:01:04,000
+Alors le dimanche matin, moi aussi, je fais la grasse matinée.
+
+17
+00:01:04,000 --> 00:01:09,000
+Et l'après-midi, je vois des amis ou je fais du shopping.
+

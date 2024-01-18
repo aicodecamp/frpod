@@ -15,11 +15,11 @@
       width="640"
       height="360"
     >
-      <source src="assets/01-01.mp4" type="video/mp4" />
+      <source src="assets/mp3.mp3" type="video/mp4" />
       <!-- Add caption tracks here -->
       <track
         kind="captions"
-        src="assets/01-01.vtt"
+        src="assets/mp3.fr.vtt"
         srclang="fr"
         label="French"
         default
@@ -101,6 +101,7 @@
                 if (player.currentTime() >= currentCue.endTime) {
                   console.log(" paused since time over");
                   player.pause();
+                  player.currentTime(currentCue.endTime - 0.01); // go back a little bit , to show the current caption
                 }
               }
             });

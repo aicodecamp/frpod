@@ -1,0 +1,47 @@
+html,
+body,
+figure {
+  margin: 0;
+}
+html {
+  background: #3c89f5;
+  color: #fff;
+  font-family: georgia, sans-serif;
+}
+body {
+  text-align: center;
+}
+button,
+p,
+footer {
+  margin-top: 2rem;
+}
+p {
+  padding: 0;
+}
+button {
+  border: 1px solid #000;
+  padding: 1rem 2rem;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+}
+button:hover,
+button:focus {
+  opacity: 0.6;
+}
+
+::cue(#\de-0),
+::cue(#\de-1),
+::cue(.de) {
+  color: #000;
+  background-color: #ffcc00;
+}
+::cue(.en) {
+  color: #fff;
+  background-color: #00247d;
+}
+::cue(.es) {
+  color: #f1bf00;
+  background-color: #aa151b;
+}
