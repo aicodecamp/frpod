@@ -81,6 +81,7 @@
 
         for (let cue of originalTrack.cues) {
           const originalText = cue.text;
+          console.log("orgininal cue = ", cue);
           const translatedText = await translateText(
             originalText,
             targetLanguage
@@ -91,6 +92,8 @@
             cue.endTime,
             translatedText
           );
+          translatedCue.align = "end";
+          console.log("translated cue = ", translatedCue);
           player.textTracks[2].addCue(translatedCue);
         }
       }
