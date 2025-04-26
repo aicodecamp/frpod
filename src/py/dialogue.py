@@ -1,4 +1,3 @@
-
 import pytest
 import requests
 from bs4 import BeautifulSoup , Tag
@@ -10,8 +9,8 @@ from typing import Callable
 
 
 def download_dialogue_mp3(text:str):
-    pass
     '''
+    Extracts and downloads an MP3 file from a webpage containing dialogue.
         1. find h2 with "dialoguue:"
         2.  first : .map_download
     '''
@@ -48,6 +47,7 @@ def download_dialogue_mp3(text:str):
 
 def download_dialogue_transcription(text:str , file_path: str):
     '''
+    Extracts and saves transcription text from a webpage.
     find 
     .fusion-toggle-has-divider
 
@@ -68,6 +68,9 @@ def download_dialogue_transcription(text:str , file_path: str):
     elems = soup.find_all('div', {class_} )
 
 def download(url:str )->None:
+    '''
+    Downloads a webpage and processes its dialogue MP3 and transcription.
+    '''
     data = requests.get(url)
     with open( 't.html' , 'w', encoding='utf-8') as f:
         f.write(data.text)

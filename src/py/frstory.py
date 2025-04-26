@@ -7,6 +7,11 @@ import json
 import re
 import requests
 
+# Function Summaries Added
+# strip_accents: Removes accents from a string.
+# replace_nonalphanumeric: Replaces non-alphanumeric characters in a string with hyphens.
+# down_feed: Downloads podcast feeds, including MP3 files and summaries, and saves them locally.
+
 def strip_accents( text: str)->str:
     return str(unicodedata.normalize('NFD', text).encode('ascii', 'ignore').decode('utf-8'))
 

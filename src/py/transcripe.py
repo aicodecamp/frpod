@@ -2,6 +2,8 @@ import whisper
 import timeit
 
 
+# Function Summary
+# trans: Transcribes an MP3 file using the Whisper model and saves the transcription to a text file.
 def trans(mp3_file):
     models = whisper.available_models()
     print(models)

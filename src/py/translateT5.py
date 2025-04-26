@@ -1,3 +1,5 @@
+# This script demonstrates the use of the mt5-base model for translation using the ctranslate2 library.
+
 import ctranslate2
 import transformers
 

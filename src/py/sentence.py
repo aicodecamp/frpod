@@ -17,9 +17,11 @@ class Sentence:
 # ajust the srt to start new line at sentense boundary
 
 def offset_whitespace(s):
+    # Calculates the number of leading whitespace characters in a string.
     return(len(s) - len(s.lstrip()))
 
 def load_whisper_json(file):
+    # Loads and processes Whisper JSON output to extract text and timing information.
     doc_timing = {}
     doc_text = ""
     js = open(file)
@@ -43,6 +45,7 @@ def load_whisper_json(file):
 
 def get_sentence_boundary(doc_text:str, doc_timing: dict):
 
+    # Identifies sentence boundaries in text based on timing information.
     sentence = Sentence()
     sentences = []
     index_max = max(doc_timing.keys())
@@ -105,4 +108,4 @@ if __name__ == '__main__':
         subs[index].text = sentence.text
 
     subs.save(testeur_new)
- 
+

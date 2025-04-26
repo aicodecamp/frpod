@@ -1,3 +1,5 @@
+# This script demonstrates the use of the ctranslate2 library for translation using a pre-trained model.
+
 import ctranslate2
 translator = ctranslate2.Translator("data/models/nllb-200-600M")
 results = translator.translate_batch([["你好", "世界", "!"]])

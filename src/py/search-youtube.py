@@ -1,4 +1,3 @@
-
 # pip install --upgrade google-api-python-client
 
 from dotenv import load_dotenv
@@ -9,6 +8,7 @@ import pprint
 load_dotenv()
 
 
+# search: Searches YouTube for videos based on a query and prints the results.
 def search():
     api_service_name = 'youtube'
     api_version = 'v3'

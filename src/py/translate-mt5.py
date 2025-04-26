@@ -1,4 +1,3 @@
-
 import ctranslate2
 import transformers
 import pprint
@@ -11,6 +10,7 @@ class Languages(str, Enum):
     cn = 'zho_Hans'
 
 
+# translate: Translates a list of strings from one language to another using the mt5-base model.
 def translate(lines : [str], from_lang=Languages.fr, to_lang = Languages.cn)->[str]:
 
     # src_lang = "eng_Latn"
@@ -54,4 +54,3 @@ if __name__ == '__main__':
 
     cn = translate(["  C'est clair que ça vaut le détour. Je suis contente de pouvoir partager ça avec toi  ", 'comment vas-tu?'])
     print(cn)
- 

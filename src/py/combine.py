@@ -1,10 +1,10 @@
-
 import os
 
 from pathlib import Path
 
 
 
+# combine_txt: Appends the content of a text file to another file, with a header indicating the source file.
 def combine_txt( from_file, to_file):
     basename = Path(from_file).stem
 
@@ -18,6 +18,7 @@ def combine_txt( from_file, to_file):
 
 
 
+# combine_folder: Combines all text files in a folder into a single file, appending their content sequentially.
 def combine_folder(path : str , to_file: str)  :
  
  
